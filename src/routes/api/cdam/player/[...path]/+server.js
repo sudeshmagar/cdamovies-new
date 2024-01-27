@@ -3,7 +3,6 @@ import axios from 'axios';
 export async function GET({ params, url }) {
     // const video = url.searchParams.get('video');
     const referer = url.searchParams.get('referer');
-    console.log(params);
     try {
         const videoUrl = params.path;
 
@@ -14,7 +13,6 @@ export async function GET({ params, url }) {
             responseType: 'stream'
         });
         const data = await response.data;
-        console.log(data);
         return new Response(response.data, {
             status: response.status,
             headers: {

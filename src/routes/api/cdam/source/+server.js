@@ -2,6 +2,7 @@ import { json } from '@sveltejs/kit';
 import { MOVIES } from '@consumet/extensions'
 
 export async function GET({ url }) {
+    console.log(url);
     const id = url.searchParams.get('id');
     const episodeId = url.searchParams.get('episodeId');
     const server = url.searchParams.get('server');

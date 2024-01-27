@@ -1,11 +1,14 @@
 export async function load({ fetch, url }) {
+    const episodeId = url.searchParams.get('episodeId');
     const id = url.searchParams.get('id');
     const server = url.searchParams.get('server');
-    const detailsResponse = await fetch('api/flixhq/movies?id=' + id);
-    const movieDetails = await detailsResponse.json();
 
-    const episodeResponse = await fetch(`api/flixhq/source?id=${id}&episodeId=${movieDetails.episodes[0].id}&server=${server}`);
+    const episodeResponse = await fetch(`../api/cdam/source?id=${id}&episodeId=${episodeId}&server=${server}`);
     const episodeDetails = await episodeResponse.json();
-    return { episodeDetails };
+	const path = episodeDetails.sources.find((item) => item.quality === '1080').url;
 
+
+    const proxyURL = await fetch(`../api/cdam/player/${path}`)
+    return { episodeDetails, proxyURL };
 }
+
