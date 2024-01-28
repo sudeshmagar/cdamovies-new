@@ -21,7 +21,7 @@
 			<div class="flex gap-4 items-center justify-center text-white px-2">
 				{#if $page.url.pathname != '/'}
 					<a href="/">
-						<Icon icon="heroicons:arrow-small-left-20-solid" class="w-8 h-8" />
+						<Icon icon="heroicons:chevron-left-16-solid" class="w-8 h-8" />
 					</a>
 				{/if}
 

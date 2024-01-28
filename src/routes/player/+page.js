@@ -5,10 +5,9 @@ export async function load({ fetch, url }) {
 
     const episodeResponse = await fetch(`../api/cdam/source?id=${id}&episodeId=${episodeId}&server=${server}`);
     const episodeDetails = await episodeResponse.json();
-	const path = episodeDetails.sources.find((item) => item.quality === '1080').url;
+	// const path = episodeDetails.sources.find((item) => item.quality === '1080').url;
 
 
-    const proxyURL = await fetch(`../api/cdam/player/${path}`)
-    return { episodeDetails, proxyURL };
+    return { episodeDetails };
 }
 
