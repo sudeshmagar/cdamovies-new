@@ -1,8 +1,9 @@
 <script>
 	import Hls from 'hls.js';
-	import { onMount } from'svelte';
+	import { onMount } from 'svelte';
 	import Plyr from '../../lib/Components/Plyr.svelte';
 	import Player from './Player.svelte';
+	import Header from '../../lib/Components/Header.svelte';
 
 	export let data;
 	let player;
@@ -31,6 +32,7 @@
 	});
 </script>
 
+<Header />
 <video id="video" bind:this={video} controls class="w-full aspect-video"></video>
 <!-- {#await import ('./Player.svelte') then {default: Player}}
 <Player {episodeDetails} url={proxyURL} {player}/>

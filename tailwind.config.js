@@ -1,10 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{html,svelte,js}'],
+  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat','sans-serif'],
+        sans: ['Montserrat', 'sans-serif'],
       }
     },
     container: {
